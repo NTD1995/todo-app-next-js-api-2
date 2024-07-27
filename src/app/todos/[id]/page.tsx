@@ -6,6 +6,7 @@ export default function Detail() {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px' }}>
         <button style={{ marginLeft: 'auto' }}>戻る</button>
       </div>
+      <div style={{ width: '100%' ,border: '1px solid black', padding: '30px', margin: '10px' }}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '20px', padding: '20px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', width: '100%' }}>
           <p>Title</p>
@@ -22,6 +23,7 @@ export default function Detail() {
           </p>
         </div>
       </div>
+    </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px' }}>
         <div style={{ flex: 1, display: 'flex', justifyContent: 'center', gap: '10px' }}>
           <button>削除</button>
