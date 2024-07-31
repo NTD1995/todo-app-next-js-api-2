@@ -1,24 +1,36 @@
 // todoの作成画面
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+type Todo = {
+  title: string;
+  detail: string;
+  status: string;
+};
 
 export default function Create() {
   const [title, setTitle] = useState('');
   const [detail, setDetail] = useState('');
   const [status, setStatus] = useState('未着手');
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState<Todo[]>([]);
 
-  const handleCreateTodo = () => {
-    const newTodo = {
+  useEffect(() => {
+    console.log(todos);
+  }, [todos]);
+
+ const handleCreateTodo =  () => {
+    const newTodo: Todo = {
       title,
       detail,
       status,
     };
+  
     setTodos([...todos, newTodo]);
     setTitle('');
     setDetail('');
     setStatus('未着手');
+  
   };
 
   return (
@@ -86,18 +98,7 @@ export default function Create() {
         <button style={{ marginLeft: 'auto' }} onClick={handleCreateTodo}>作成</button>
       </div>
 
-      <div style={{ padding: '20px' }}>
-        <h2>TODO List</h2>
-        <ul>
-          {todos.map((todo, index) => (
-            <li key={index}>
-              <h3>{todo.title}</h3>
-              <p>{todo.detail}</p>
-              <p>Status: {todo.status}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+      
     </>
   );
 }
