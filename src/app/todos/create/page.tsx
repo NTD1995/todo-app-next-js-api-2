@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import { useTodoContext } from './TodoContext';
 
 type Todo = {
   title: string;
@@ -13,14 +14,11 @@ export default function Create() {
   const [title, setTitle] = useState('');
   const [detail, setDetail] = useState('');
   const [status, setStatus] = useState('未着手');
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const { todos, setTodos } = useTodoContext();
 
-  useEffect(() => {
-    console.log(todos);
-  }, [todos]);
 
  const handleCreateTodo =  () => {
-    const newTodo: Todo = {
+    const newTodo  = {
       title,
       detail,
       status,
