@@ -1,8 +1,8 @@
 // todoの作成画面
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { useTodoContext } from './TodoContext';
+import React, { useState } from 'react';
+import { useTodos } from '../context/TodoContext';
 
 type Todo = {
   title: string;
@@ -14,17 +14,14 @@ export default function Create() {
   const [title, setTitle] = useState('');
   const [detail, setDetail] = useState('');
   const [status, setStatus] = useState('未着手');
-  const { todos, setTodos } = useTodoContext();
-
+ const { addTodo } = useTodos();
 
  const handleCreateTodo =  () => {
-    const newTodo  = {
+    addTodo ({
       title,
       detail,
       status,
-    };
-  
-    setTodos([...todos, newTodo]);
+    });
     setTitle('');
     setDetail('');
     setStatus('未着手');

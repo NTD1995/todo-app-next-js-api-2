@@ -2,21 +2,16 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { Headers } from '../components/Header';
-import React from 'react';
-import { TodoProvider } from 'src/components/TodoContext.tsx';
-import Create from 'src/app/todos/create/page.tsx';
-import Todos from 'src/app/todos/page.tsx';
+import { TodoProvider } from '../context/TodoContext';
+import { AppProps } from 'next/app';
 
-const App = () => {
+function MyApp({ Component, pageProps }: AppProps){
   return (
     <TodoProvider>
-      <Create />
-      <Todos />
+      <Component {...pageProps} />
     </TodoProvider>
   );
-};
-
-export default App;
+}
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -30,6 +25,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
   return (
     <html lang="en">
       <body className={inter.className}>

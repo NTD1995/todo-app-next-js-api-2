@@ -1,9 +1,10 @@
 // todo一覧画面
-import React from 'react';
-import { useTodoContext } from './TodoContext';
+import React, { useContext } from 'react';
+import { TodoContext } from '../context/TodoContext';
 
 export default function Todos() {
-  const { todos } = useTodoContext();
+  const { todos } = useContext(TodoContext);
+  
   return (
     <>
       <h1>TODOリスト</h1>
